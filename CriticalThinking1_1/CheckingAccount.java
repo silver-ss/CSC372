@@ -21,7 +21,7 @@ public class CheckingAccount extends BankAccount {
         if (amount > balance) {
             System.out.println("Overdraft! A $30 fee has been applied.");
             balance -= (amount + 30); // Subtract withdrawal and $30 fee
-            System.out.printf("New balance after overdraft: %.2f%n", balance);
+            System.out.printf("New balance after overdraft: $%.2f%n", balance);
         } else {
             super.withdrawal(amount); // Call superclass withdrawal
         }

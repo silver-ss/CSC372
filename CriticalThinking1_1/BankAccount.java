@@ -39,7 +39,7 @@ public class BankAccount {
             System.out.println("ERROR: Insufficient funds. Withdrawal denied.");
         } else {
             balance -= amount;
-            System.out.printf("Withdrawal successful! New balance: %.2f%n", balance);
+            System.out.printf("Withdrawal successful! New balance: $%.2f%n", balance);
         }
     }
 
@@ -55,6 +55,5 @@ public class BankAccount {
     public double getBalance() { return balance; }
 
     protected void accountSummary() {
-        System.out.printf("Name: %s %s, AccountID: %d, Balance: %.2f", firstName, lastName, accountID, balance);
-	}
+        System.out.printf("Name: %s %s, Account ID: %d, Balance: $%.2f", firstName, lastName, accountID, balance);}
 }
