@@ -7,11 +7,11 @@ import java.text.NumberFormat;
 import javax.swing.*;
 
 public class GraphicalUserInterface extends JFrame implements ActionListener {
-    private JButton depositButton = null;
-    private JButton withdrawalButton = null;
-    private JFormattedTextField depositField = null;
-    private JFormattedTextField balanceField = null;
-    private JFormattedTextField withdrawalField = null;
+    private JButton depositButton;
+    private JButton withdrawalButton;
+    private JFormattedTextField depositField;
+    private JFormattedTextField balanceField;
+    private JFormattedTextField withdrawalField;
 
     // Constructor for JFrame
     GraphicalUserInterface() {
@@ -116,21 +116,28 @@ public class GraphicalUserInterface extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent event) {
-        Double ammount = 0.0;
+        Double amount = 0.0;
         Double balance = Double.valueOf((Double) balanceField.getValue());
         JButton source =(JButton) event.getSource();
 
         if (source == depositButton) {
-            ammount = ((Number) depositField.getValue()).doubleValue();
-            System.out.println("Depositamount is :" + ammount);
-            balanceField.setValue(balance += ammount);
-            System.out.println("balanceField is now : " + balanceField.getValue());
+            amount = ((Number) depositField.getValue()).doubleValue();
+            System.out.println("Deposit amount is :$" + amount);
+            balanceField.setValue(balance += amount);
+            System.out.println("Balance is now : $" + balanceField.getValue());
         }
         else if (source == withdrawalButton) {
-            ammount = ((Number) withdrawalField.getValue()).doubleValue();
-            System.out.println("Withdrawalamount is :" + ammount);
-            balanceField.setValue(balance -= ammount);
-            System.out.println("balanceField is now : " + balanceField.getValue());
+            amount = ((Number) withdrawalField.getValue()).doubleValue();
+            System.out.println("Withdrawal amount is : $" + amount);
+
+            if (amount > balance) { // if withdrawal > balance, show error and dont process.
+                JOptionPane.showMessageDialog(null, "ERROR: Insufficent funds",
+                        "Transaction Denied", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            balance -= amount;
+            setBalanceField(balance); // using method
+            System.out.println("Balance is now : $" + balanceField.getValue());
         }
     }
 }
