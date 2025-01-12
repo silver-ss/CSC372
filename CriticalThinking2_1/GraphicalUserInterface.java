@@ -122,13 +122,13 @@ public class GraphicalUserInterface extends JFrame implements ActionListener {
 
         if (source == depositButton) {
             amount = ((Number) depositField.getValue()).doubleValue();
-            System.out.println("Deposit amount is :$" + amount);
+            System.out.println("Deposit amount is: $" + amount);
             balanceField.setValue(balance += amount);
-            System.out.println("Balance is now : $" + balanceField.getValue());
+            System.out.println("Balance is now: $" + balanceField.getValue());
         }
         else if (source == withdrawalButton) {
             amount = ((Number) withdrawalField.getValue()).doubleValue();
-            System.out.println("Withdrawal amount is : $" + amount);
+            System.out.println("Withdrawal amount is: $" + amount);
 
             if (amount > balance) { // if withdrawal > balance, show error and dont process.
                 JOptionPane.showMessageDialog(null, "ERROR: Insufficent funds",
@@ -137,7 +137,7 @@ public class GraphicalUserInterface extends JFrame implements ActionListener {
             }
             balance -= amount;
             setBalanceField(balance); // using method
-            System.out.println("Balance is now : $" + balanceField.getValue());
+            System.out.println("Balance is now: $" + balanceField.getValue());
         }
     }
 }
