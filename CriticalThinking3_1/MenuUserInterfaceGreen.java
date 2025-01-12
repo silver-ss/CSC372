@@ -22,33 +22,31 @@ public class MenuUserInterfaceGreen extends Application {
         MenuItem saveToFile = new MenuItem("Save to File");
         MenuItem changeColor = new MenuItem("Change Color");
         MenuItem quit = new MenuItem("Quit");
-        MenuButton menuButton = new MenuButton("Menu", null, showTime, saveToFile, changeColor, quit);
+        MenuButton menuButton = new MenuButton(
+                "Menu", null, showTime, saveToFile, changeColor, quit);
+        menuButton.setStyle("-fx-font-size: 14px; -fx-text-fill: white;");
+
         //Labels
         Label timeLabel = new Label("Date Time:");
         Label inputLabel = new Label("Text Input:");
         timeLabel.setPrefWidth(60);
         inputLabel.setPrefWidth(60);
-
         //Text Areas
         TextField timeField = new TextField();
         timeField.setEditable(false);
-
         TextArea inputField = new TextArea();
         inputField.setEditable(true);
         inputField.setPrefSize(200, 60);
-
         //Horizontal boxes
         HBox row1 = new HBox(10);
         HBox row2 = new HBox(10);
         row1.getChildren().addAll(timeLabel, timeField);
         row2.getChildren().addAll(inputLabel, inputField);
-
         //GridPane
         GridPane gridPane = new GridPane();
         gridPane.setHgap(10);
         gridPane.setVgap(10);
         gridPane.setPadding(new Insets(10));
-
         //Alignment
         ColumnConstraints col1 = new ColumnConstraints();
         col1.setHalignment(HPos.RIGHT);
@@ -59,7 +57,6 @@ public class MenuUserInterfaceGreen extends Application {
         gridPane.add(timeField, 1, 0);
         gridPane.add(inputLabel, 0, 1);
         gridPane.add(inputField, 1, 1);
-
         //Combine items and set scene
         VBox stack = new VBox(10, menuButton, gridPane);
         stack.setPadding(new Insets(10));
@@ -67,7 +64,6 @@ public class MenuUserInterfaceGreen extends Application {
         Scene scene = new Scene(stack, 400, 200);
         primaryStage.setScene(scene);
         primaryStage.show();
-
         //Menu actions
         showTime.setOnAction(e -> MenuActions.showDateTime(timeField));
         saveToFile.setOnAction(e -> MenuActions.saveToFile(inputField.getText()));

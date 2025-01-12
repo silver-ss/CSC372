@@ -22,8 +22,9 @@ public class MenuActions {
 
     // input text and save that text to a log.txt file
     public static void saveToFile(String input) {
+        String path = "log.txt";
         try (BufferedWriter writer = new BufferedWriter(
-                new FileWriter("log.txt", true))) {
+                new FileWriter(path, true))) {
             writer.write(input);
             writer.newLine();
             System.out.println("Content Saved to log.txt");
