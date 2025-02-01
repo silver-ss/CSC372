@@ -4,6 +4,12 @@ public class Student {
     private String address;
 
     // constructor
+    /*
+     * Creates a student with the given roll number, name, and address.
+     * @param rollno the roll number of the student
+     * @param name the name of the student
+     * @param address the address of the student
+     */
     public Student(Integer rollno, String name, String address) {
         this.rollno = rollno;
         this.name = name;

@@ -4,6 +4,10 @@ public class Test {
     ArrayList<Student> students;
 
     private static void printStudents(ArrayList<Student> array) {
+        /*
+         * Prints the students in the array.
+         * @param array the array of students
+         */
         for (Student s : array) {
             System.out.printf("%d | %-6s | %s\n", s.getRollno(), s.getName(), s.getAddress());
         }
@@ -27,12 +31,12 @@ public class Test {
         System.out.println("Before Sorting:");
         printStudents(students);
 
-        // sort by name
+        // sort by name using selection sort by name
         SelectionSort.selectionSort(students, new SortName());
         System.out.println("Sorted by name:");
         printStudents(students);
 
-        // sort by rollno
+        // sort by rollno using selection sort by rollno
         SelectionSort.selectionSort(students, new SortRollno());
         System.out.println("Sorted by rollno:");
         printStudents(students);
