@@ -1,17 +1,23 @@
+import java.math.BigInteger;
 import java.util.Scanner;
 
 public class Recursion {
     public static int[] inputs = new int[5];
 
     //recursion method
-    public static int multiplyAll(int n) {
+    public static BigInteger multiplyAll(int n) {
         //BaseCase: all number in the array have been multiplied
         if (n >= inputs.length) {
             //once base case is hit multiply by 1 and exit recursive loop
-            return 1;
+            return BigInteger.ONE;
         }
         //Recursive call to multiply array item by next item in array
-        return inputs[n] * multiplyAll(n + 1);
+        //1. Multiply the integer at index n by the next integer in the array (n +1)
+        //2. Make a recursive call to multiplyAll continuing to iterate through array with (n+1)
+        //3. Multiply the next element (n+1) by (n+2)
+        //4. Repeat until all elements in the array have been multiplied
+        //This multiplies all element in the array, then hits the base case and multiplies by 1 and returns the value. 
+        return BigInteger.valueOf(inputs[n]).multiply(multiplyAll(n + 1));
     }
 
     public static void main(String[] args) {
